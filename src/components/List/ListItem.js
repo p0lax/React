@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './List.css';
 
 class ListItem extends Component {
   render () {
-    const { index, displayName } = this.props;
+    const { index, title } = this.props;
     return (
       <li>
-        { `${displayName} ${index + 1}` }
+        { `${title} ${index + 1}` }
       </li>
     );
   }

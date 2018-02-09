@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import ListItem from './ListItem';
+import ListTitle from './ListTitle';
 import './List.css';
 
 class List extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expanded: false
+    };
+  }
+
+  expand = () => {
+    this.setState({ expanded: !this.state.expanded });
+  }
 
   renderListItem = (item, index) => {
     return (
@@ -17,13 +30,22 @@ class List extends Component {
 
   render () {
     const { title, items } = this.props;
-
+    const { expanded } = this.state;
+    
     return (
       <section className="list">
-        { title && <h3 className="list-title">{title}</h3> }
-        <ul>
-          { items.length > 0 && items.map(this.renderListItem) }
-        </ul>
+        <ListTitle expanded={expanded} title={title} onExpand={this.expand} />
+        {
+          expanded ? 
+            <ul>
+              { 
+                items.length > 0 ? 
+                  items.map(this.renderListItem) : 
+                  <div>There are no itmes in this list!</div>
+              }
+            </ul> :
+            null
+        }
       </section>
     )
   }

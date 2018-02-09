@@ -8,7 +8,19 @@
 }
 
 
-.list-title {
+.list-title-block {
+  cursor: pointer;
   font-size: 1em;
+}
+
+.list-title-marker {
+  display: inline-block;
+  width:20px;
+  height: 20px;
+  text-align: center;
+}
+
+.list-title-text {
+  display: inline-block;
   text-transform: uppercase;
 }
