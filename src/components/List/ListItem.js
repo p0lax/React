@@ -4,17 +4,17 @@ import './List.css';
 
 class ListItem extends Component {
   render () {
-    const { displayName }
+    const { index, displayName } = this.props;
     return (
       <li>
-        { displayName }
+        { `${displayName} ${index + 1}` }
       </li>
-    )
+    );
   }
 }
 
-List.propTypes = {
+ListItem.propTypes = {
   displayName: PropTypes.string
-}
+};
 
-export default ListItem
+export default ListItem;
